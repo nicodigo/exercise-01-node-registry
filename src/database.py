@@ -1,9 +1,19 @@
-"""
-Database connection and session management.
+import os
+from sqlalchemy import create_engine
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
 
-Read DATABASE_URL from environment variable.
-Create SQLAlchemy engine and session.
-Provide a dependency for FastAPI to get a DB session.
-"""
+DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://noderegistry:noderegistry@db:5432/noderegistry")
 
-# TODO: Implement database connection here
+engine = create_engine(DATABASE_URL)
+
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+
+Base = declarative_base()
+
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()

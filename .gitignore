@@ -1,7 +1,6 @@
-__pycache__/
-*.py[cod]
+__pycache__
+*.pyc
 .env
-.venv/
 venv/
-*.egg-info/
-.aider*
+.venv/
+.pytest_cache/

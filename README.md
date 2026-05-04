@@ -71,7 +71,7 @@ Build a REST API with **FastAPI** backed by **PostgreSQL**, containerized with *
 |--------|------|-------------|---------|-------|
 | `GET` | `/health` | Health check with DB status | 200 | - |
 | `POST` | `/api/nodes` | Register a new node | 201 | 409 (duplicate), 422 (validation) |
-| `GET` | `/api/nodes` | List all active nodes | 200 | - |
+| `GET` | `/api/nodes` | List all nodes | 200 | - |
 | `GET` | `/api/nodes/{name}` | Get a node by name | 200 | 404 |
 | `PUT` | `/api/nodes/{name}` | Update a node's host/port | 200 | 404, 422 |
 | `DELETE` | `/api/nodes/{name}` | Soft-delete a node (set status=inactive) | 204 | 404 |
