@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, RootModel
 from typing import Optional
 from datetime import datetime
 
@@ -23,5 +23,5 @@ class NodeResponse(BaseModel):
     class Config:
         from_attributes = True  # Pydantic v2
 
-class NodeList(BaseModel):
-    __root__: list[NodeResponse]
+class NodeList(RootModel[list[NodeResponse]]):
+    pass
