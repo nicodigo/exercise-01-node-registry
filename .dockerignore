@@ -1,7 +1,38 @@
 # Exclude files that are not needed in the Docker build context
+# Git
 .git
-__pycache__
+.gitignore
+.github
+
+# Python cache / artifacts
+__pycache__/
 *.pyc
-.env
-venv/
+*.pyo
+*.pyd
+.pytest_cache/
+
+# Virtual environments
 .venv/
+venv/
+
+# Aider / tooling local
+.aider*
+.aider/
+
+# Env files (solo si no se necesitan en build)
+.env
+.env.*
+
+# OS / editor
+.DS_Store
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Tests (opcional, si no se ejecutan en build)
+tests/
+
+# Docs innecesarios en runtime
+README.md
