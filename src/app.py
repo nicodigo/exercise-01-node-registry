@@ -17,7 +17,6 @@ def on_startup():
 # Health endpoint
 @app.get("/health")
 def health(db: Session = Depends(get_db)):
-    # TODO: implement proper health check
     try:
         # Execute simple checkhealth
         db.execute(text("SELECT 1"))
